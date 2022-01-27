@@ -8,7 +8,7 @@ const Blogs = () => {
   const [page, setPage] = useState(0);
     const [pageCount, setPageCount] = useState(0);
 
-    const size = 11;
+    const size = 10;
 
     useEffect(() => {
                 fetch(`https://desolate-escarpment-83667.herokuapp.com/blog?page=${page}&&size=${size}`)
@@ -38,7 +38,7 @@ const Blogs = () => {
                 <div className='row'>
                     {
                         allBlogs?.map(allBlog =>
-                            <div className='col-12 col-lg-6 col-md-6  mb-5'>
+                            <div key={allBlog._id} className='col-12 col-lg-6 col-md-6  mb-5'>
                                 <div className='m-2 border blog-img'>
                                     <img src={allBlog?.img} width="100%" className='image' alt="" />
                                     <div className="blog-btn">
