@@ -9,7 +9,7 @@ const ManagePost = () => {
     const [managePost, setManagePost] = useState([]);
     
     useEffect(() => {
-        fetch('http://localhost:5000/blogs')
+        fetch('https://desolate-escarpment-83667.herokuapp.com/blogs')
             .then(res => res.json())
             .then(data =>{ 
                 setManagePost(data);
@@ -31,7 +31,7 @@ const ManagePost = () => {
 
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/blogs/${id}`, {
+                fetch(`https://desolate-escarpment-83667.herokuapp.com/blogs/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -58,7 +58,7 @@ const ManagePost = () => {
 
     ///update Booking
     const ApprovePost = (id) => {
-        fetch(`http://localhost:5000/approvePost/${id}`, {
+        fetch(`https://desolate-escarpment-83667.herokuapp.com/approvePost/${id}`, {
             method: "PUT",
         })
             .then(res => res.json())
@@ -90,7 +90,7 @@ const ManagePost = () => {
                 <div className='row '>
                     {
                         managePost?.map(allPost =>
-                            <div className=' col-12 '>
+                            <div key={allPost._id} className=' col-12 '>
                                  <h4 className='text-secondary fw-bold mt-3'> Posted By {allPost?.userName}</h4>
                                 <div className='d-flex '>
 

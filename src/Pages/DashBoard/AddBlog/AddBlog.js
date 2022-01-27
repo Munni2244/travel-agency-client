@@ -14,7 +14,7 @@ const AddBlog = () => {
 
     const onSubmit = (data) => {
         data.status = 'pending';
-        fetch('http://localhost:5000/Blog', {
+        fetch('https://desolate-escarpment-83667.herokuapp.com/Blog', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)

@@ -35,7 +35,7 @@ const location = useLocation();
     return (
       <div className="d-flex justify-content-center login ">
             <div className="text-center mt-5 login-box ">
-            <h1 className="mb-4">Please Login <i class="fas fa-sign-in-alt text-warning"></i></h1>
+            <h1 className="mb-4">Please Login <i className="fas fa-sign-in-alt text-warning"></i></h1>
 
             <div  className="row user">
             

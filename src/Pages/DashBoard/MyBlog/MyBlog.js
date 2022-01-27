@@ -7,7 +7,7 @@ const MyBlog = () => {
     const {user}=useAuth();
     const [myBlog, setMyBlog] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/myBlog/${user?.email}`)
+        fetch(`https://desolate-escarpment-83667.herokuapp.com/myBlog/${user?.email}`)
             .then(res => res.json())
             .then(data => setMyBlog(data))
 
@@ -26,7 +26,7 @@ const MyBlog = () => {
 
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/blogs/${id}`, {
+                fetch(`https://desolate-escarpment-83667.herokuapp.com/blogs/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -61,7 +61,7 @@ const MyBlog = () => {
 
                     {
                         myBlog?.map(blog =>
-                            <div className=' col-12 '>
+                            <div key={blog._id} className=' col-12 '>
                                 <div className='row'>
 
                                     <div className='col-12 col-lg-8  mt-3'>

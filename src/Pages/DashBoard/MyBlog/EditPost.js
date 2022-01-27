@@ -12,7 +12,7 @@ const EditPost = () => {
 // console.log(id);
 
     useEffect(()=>{
-       fetch(`http://localhost:5000/details/${id}`)
+       fetch(`https://desolate-escarpment-83667.herokuapp.com/details/${id}`)
        .then(res=> res.json())
        .then(data => setEditPost(data))
     },[editPost])
@@ -20,7 +20,7 @@ const EditPost = () => {
     //edit information
     const onSubmit = data => {
       
-        fetch(`http://localhost:5000/blog/${id}`, {
+        fetch(`https://desolate-escarpment-83667.herokuapp.com/blog/${id}`, {
             method: 'PUT',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)

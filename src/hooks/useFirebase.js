@@ -110,7 +110,7 @@ const useFirebase = () => {
   //save Users
   const saveUser = (email, displayName, method) => {
     const user = { email, displayName };
-    fetch('http://localhost:5000/users', {
+    fetch('https://desolate-escarpment-83667.herokuapp.com/users', {
       method: method,
       headers: {
         'content-type': 'application/json'
@@ -123,7 +123,7 @@ const useFirebase = () => {
 
   useEffect(() => {
     setIsLoading(true)
-    fetch(`http://localhost:5000/checkAdmin/${user?.email}`)
+    fetch(`https://desolate-escarpment-83667.herokuapp.com/checkAdmin/${user?.email}`)
       .then(res => res.json())
       .then(data => {
         if (data.role === 'admin') {

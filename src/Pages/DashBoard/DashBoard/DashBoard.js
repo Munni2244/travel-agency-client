@@ -43,7 +43,7 @@ const DashBoard = () => {
                                         <Link to="/"><i className="fas fa-home"></i> Go Home</Link>
                                     </li>
                                     <li className="nav-item">
-                                        <Link to="myBlog"><i class="fas fa-luggage-cart"></i> My Blog</Link>
+                                        <Link to="myBlog"><i className="fas fa-luggage-cart"></i> My Blog</Link>
                                     </li>
 
                         

@@ -25,14 +25,14 @@ const Navigation = () => {
 
                                 <div className='d-flex navigation-bar'>
                                     <li className="nav-item active ">
-                                        <i class="fab fa-facebook"></i>
+                                        <i className="fab fa-facebook"></i>
                                     </li>
                                     <li className="nav-item active ">
-                                        <i class="fab fa-instagram-square"></i>                   </li>
+                                        <i className="fab fa-instagram-square"></i>                   </li>
                                     <li className="nav-item active ">
-                                    <i class="fab fa-twitter"></i>                                    </li>
+                                    <i className="fab fa-twitter"></i>                                    </li>
                                     <li className="nav-item active ">
-                                    <i class="fab fa-google-plus"></i>                                    </li>
+                                    <i className="fab fa-google-plus"></i>                                    </li>
 
                                 </div>
 

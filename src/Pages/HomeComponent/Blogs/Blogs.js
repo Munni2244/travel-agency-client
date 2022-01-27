@@ -11,7 +11,7 @@ const Blogs = () => {
     const size = 11;
 
     useEffect(() => {
-                fetch(`http://localhost:5000/blog?page=${page}&&size=${size}`)
+                fetch(`https://desolate-escarpment-83667.herokuapp.com/blog?page=${page}&&size=${size}`)
             .then(res => res.json())
             .then(data => {
                 setBlogs(data.blogs)
@@ -41,8 +41,8 @@ const Blogs = () => {
                             <div className='col-12 col-lg-6 col-md-6  mb-5'>
                                 <div className='m-2 border blog-img'>
                                     <img src={allBlog?.img} width="100%" className='image' alt="" />
-                                    <div class="blog-btn">
-                                        <div class="text">
+                                    <div className="blog-btn">
+                                        <div className="text">
                                             <Link to={`/details/${allBlog?._id}`}> Read More</Link>
                                         </div>
                                     </div>

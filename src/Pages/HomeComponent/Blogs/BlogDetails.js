@@ -13,14 +13,14 @@ const BlogDetails = () => {
 
     // get placeorders 
     useEffect(() => {
-        fetch(`http://localhost:5000/details/${id}`)
+        fetch(`https://desolate-escarpment-83667.herokuapp.com/details/${id}`)
             .then(res => res.json())
             .then(data => setDetails(data))
     }, [details])
 
     //top rated blog
     useEffect(() => {
-        fetch('http://localhost:5000/blogs')
+        fetch('https://desolate-escarpment-83667.herokuapp.com/blogs')
             .then(res => res.json())
             .then(data => setTopBlogs(data))
 

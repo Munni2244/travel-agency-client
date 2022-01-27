@@ -11,7 +11,7 @@ const CreateAdmin = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const user={email};
-        fetch('http://localhost:5000/addAdmin',{
+        fetch('https://desolate-escarpment-83667.herokuapp.com/addAdmin',{
          method: "PUT",
          headers:{ 
              "content-type": "application/json"

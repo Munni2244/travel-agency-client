@@ -8,7 +8,7 @@ import Navigation from '../Shared/Navigation/Navigation';
 const CompairBlog = () => {
     const [topBlogs, setTopBlogs]=useState([])
      useEffect(() => {
-        fetch('http://localhost:5000/blogs')
+        fetch('https://desolate-escarpment-83667.herokuapp.com/blogs')
             .then(res => res.json())
             .then(data => setTopBlogs(data))
 

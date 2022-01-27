@@ -31,7 +31,7 @@ const Register = () => {
           <div  className="row user">
               
           <div style={{marginTop:'100px'}} className="col-12 col-lg-12 text-center">
-          <h1 className="mb-4">Please Register <i class="fas fa-sign-in-alt text-warning"></i></h1>
+          <h1 className="mb-4">Please Register <i className="fas fa-sign-in-alt text-warning"></i></h1>
               <form onSubmit={HandleForm} >
                   <div >
                       <input onBlur={HandleOnChanges} name="name" type="text"  id="exampleInputName1" placeholder="Name" style={{ width: '35%' }} className="mb-3 p-2 rounded-pill field"/>
