@@ -6,7 +6,7 @@ const Register = () => {
     const {user,RegisterUser,loading}= useAuth();
     const [RegisterData, setRegisterData]=useState({});
   const navigate= useNavigate();
-  
+
       const HandleOnChanges=(e)=>{
           const field= e.target.name;
           const value= e.target.value;
@@ -24,7 +24,7 @@ const Register = () => {
               return
             }
             RegisterUser(RegisterData.email, RegisterData.password, RegisterData.name, navigate)
-             
+        //    alert('Refister success');
           }
   
       return (

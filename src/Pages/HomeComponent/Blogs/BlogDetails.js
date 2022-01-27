@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Rating from 'react-rating';
 import { Link, useParams } from 'react-router-dom';
 import Navigation from '../../Shared/Navigation/Navigation';
+import Footer from '../Home/Footer/Footer';
 
 const BlogDetails = () => {
     // const {user}=useAuth();
@@ -115,6 +116,7 @@ const BlogDetails = () => {
 
                 </div>
             </div>
+            <Footer/>
         </div>
     );
 };

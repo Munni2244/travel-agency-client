@@ -1,4 +1,4 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, sendEmailVerification, sendSignInLinkToEmail } from "firebase/auth";
 import { useEffect, useState } from "react";
 import Initialization from "../Firebase/firebase.init";
 
@@ -24,6 +24,7 @@ const useFirebase = () => {
       }).catch((error) => {
       }).finally(() => setIsLoading(false));
   }
+  
 
   /// create register app
   const RegisterUser = (email, password, name, navigate) => {
@@ -31,117 +32,121 @@ const useFirebase = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         sendEmailVerification(auth.currentUser)
-        .then(() => {
-          // Email verification sent!
-          // ...
-        })
+          .then(() => {
+         
+            window.alert("Varification sent")
+
+          
+          }).catch((error)=>{
+  window.alert("Error", error.message)
+          })
         const newUser = { email, displayName: name };
         setUser(newUser);
-        saveUser(email, name)
+        saveUser(email, name, 'POST')
         updateProfile(auth.currentUser, {
           displayName: name
         }).then(() => {
           // Profile updated!
           // ...
         })
-       
 
-            .catch((error) => {
+
+          .catch((error) => {
             // An error occurred
             // ...
           });
+          
+        navigate('/')
 
-    navigate('/')
 
-
-  })
-  .catch ((error) => {
-  console.log(error.message);
-  // ..
-})
-   .finally(() => setIsLoading(false));
+      })
+      .catch((error) => {
+        console.log(error.message);
+        // ..
+      })
+      .finally(() => setIsLoading(false));
   }
 
-/// login user
-const loginUser = (email, password, location, navigate) => {
-  setIsLoading(true)
-  signInWithEmailAndPassword(auth, email, password)
-    .then(() => {
-      const destination = location?.state?.from || '/';
-      navigate(destination);
-      // console.log('history', history,location);
-    })
-    .catch((error) => {
-      console.log(error.message);
-    }).finally(() => setIsLoading(false));
+  /// login user
+  const loginUser = (email, password, location, navigate) => {
+    setIsLoading(true)
+    signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        const destination = location?.state?.from || '/';
+        navigate(destination);
+        // console.log('history', history,location);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      }).finally(() => setIsLoading(false));
 
-}
+  }
 
-//statechange
-useEffect(() => {
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      setUser(user)
+  //statechange
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user)
 
-    } else {
-      setUser({})
-    }
-    setIsLoading(false)
-  });
-}, [auth])
-
-///sign out
-const logOut = () => {
-  setIsLoading(true)
-  signOut(auth).then(() => {
-    //  setUser({})
-  }).catch((error) => {
-
-  })
-    .finally(() => setIsLoading(false));
-
-}
-
-//save Users
-const saveUser = (email, displayName, method) => {
-  const user = { email, displayName };
-  fetch('http://localhost:5000/users', {
-    method: method,
-    headers: {
-      'content-type': 'application/json'
-    },
-    body: JSON.stringify(user)
-  })
-    .then()
-}
-
-
-useEffect(() => {
-  setIsLoading(true)
-  fetch(`http://localhost:5000/checkAdmin/${user?.email}`)
-    .then(res => res.json())
-    .then(data => {
-      if (data.role === 'admin') {
-        setAdmin(true);
-        setIsLoading(false)
+      } else {
+        setUser({})
       }
-      else {
-        setIsLoading(false);
-        setAdmin(false);
-      }
-    })
-}, [user.email])
+      setIsLoading(false)
+    });
+  }, [auth])
 
-return {
-  setUser,
-  user,
-  isLoading,
-  SignWithGoogle,
-  logOut,
-  setIsLoading,
-  admin,
-  loginUser,
-  RegisterUser
-}
+  ///sign out
+  const logOut = () => {
+    setIsLoading(true)
+    signOut(auth).then(() => {
+      //  setUser({})
+    }).catch((error) => {
+
+    })
+      .finally(() => setIsLoading(false));
+
+  }
+
+  //save Users
+  const saveUser = (email, displayName, method) => {
+    const user = { email, displayName };
+    fetch('http://localhost:5000/users', {
+      method: method,
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    })
+      .then()
+  }
+
+
+  useEffect(() => {
+    setIsLoading(true)
+    fetch(`http://localhost:5000/checkAdmin/${user?.email}`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.role === 'admin') {
+          setAdmin(true);
+          setIsLoading(false)
+        }
+        else {
+          setIsLoading(false);
+          setAdmin(false);
+        }
+      })
+  }, [user.email])
+
+  return {
+    setUser,
+    user,
+    isLoading,
+    SignWithGoogle,
+    logOut,
+    setIsLoading,
+    admin,
+    loginUser,
+    RegisterUser
+  }
 }
 export default useFirebase;

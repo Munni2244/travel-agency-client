@@ -3,13 +3,14 @@ import { Link, Outlet } from 'react-router-dom';
 import './DashBoard.css'
 import pp from '../../../images/user.png';
 import useAuth from '../../../hooks/useAuth';
+import Footer from '../../HomeComponent/Home/Footer/Footer';
 const DashBoard = () => {
     const {user, admin, logOut}=useAuth();
     return (
         <div>
 
 
-            <div style={{ backgroundColor: 'hsl(150, 15%, 96%)'}} className=' text-dark  d-flex justify-content-end align-items-center '>
+            <div style={{ backgroundColor: 'hsl(150, 35%, 89%)'}} className=' text-dark  d-flex justify-content-end align-items-center p-2'>
               
                 <Link to="/">
                     <button onClick={logOut} style={{ border: '1px solid black', borderRadius: '20px', height: '40px' }} className='btn mx-3 text-dark'><i className="fas fa-sign-out-alt me-2 text-dark"></i> LogOut</button>
@@ -73,6 +74,7 @@ const DashBoard = () => {
 
                 </div>
             </div>
+            <Footer></Footer>
         </div>
     );
 };

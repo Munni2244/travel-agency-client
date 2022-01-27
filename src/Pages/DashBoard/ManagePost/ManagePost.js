@@ -7,20 +7,13 @@ import user from '../../../images/blog-post-img-01-1024x681.jpg';
 const ManagePost = () => {
     const {user}=useAuth();
     const [managePost, setManagePost] = useState([]);
-    // const [page, setPage] = useState(0);
-    // const [pageCount, setPageCount] = useState(0);
-
-    // const size = 10;
-
+    
     useEffect(() => {
-        // fetch(`http://localhost:5000/blogs?page=${page}&&size=${size}`)
         fetch('http://localhost:5000/blogs')
             .then(res => res.json())
             .then(data =>{ 
                 setManagePost(data);
-                // const count = data.count;
-                // const pageNumber = Math.ceil(count / size);
-                // setPageCount(pageNumber);
+                
             })
 
     }, [managePost])
@@ -90,7 +83,7 @@ const ManagePost = () => {
             <div className='container mt-5'>
                 <div>
                     <img width="100px" height="100px" className='rounded-circle' src={user?.photoURL} alt="" />
-                    <h4 className='text-secondary fw-bold'> Posted By {user.displayName}</h4>
+                   
 
 
                 </div>
@@ -98,6 +91,7 @@ const ManagePost = () => {
                     {
                         managePost?.map(allPost =>
                             <div className=' col-12 '>
+                                 <h4 className='text-secondary fw-bold mt-3'> Posted By {allPost?.userName}</h4>
                                 <div className='d-flex '>
 
                                     <h6 className='text-secondary mt-2'> {allPost?.date}</h6>
@@ -116,7 +110,7 @@ const ManagePost = () => {
 
                                             <div className='d-flex'>
 
-                                                <button onClick={() => ApprovePost(allPost?._id)} type="submit" style={{ width: '60%', height: '50px', backgroundColor: '#b2faee' }} className=" rounded-pill mb-3  text-dark fw-bold ">Approve Post</button>
+                                              <button onClick={() => ApprovePost(allPost?._id)} type="submit" style={{ width: '60%', height: '50px', backgroundColor: '#b2faee' }} className=" rounded-pill mb-3  text-dark fw-bold "> {allPost?.status== "Approve"? "Approved" : "Approved Post"}  </button>
 
                                                 <button onClick={() => RemoveBlog(allPost?._id)} type="submit" style={{ width: '60%', height: '50px', backgroundColor: '' }} className=" rounded-pill mb-3 ms-3 text-light fw-bold bg-danger">Delete Post</button>
                                             </div>
@@ -142,16 +136,7 @@ const ManagePost = () => {
 
 
                 </div>
-                {/* <div className="pagination">
-                        {
-                            [...Array(pageCount).keys()]
-                                .map(number => <button
-                                    className={number === page ? 'selected' : ''}
-                                    key={number}
-                                    onClick={() => setPage(number)}
-                                >{number + 1}</button>)
-                        }
-                    </div> */}
+             
             </div>
         </div>
     );

@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import Navigation from '../../Shared/Navigation/Navigation';
 import logo from '../../../images/logo.jpg'
 import useAuth from '../../../hooks/useAuth';
+import Footer from '../../HomeComponent/Home/Footer/Footer';
 
 const AddBlog = () => {
     const {user}= useAuth();
@@ -114,6 +115,7 @@ const AddBlog = () => {
                     </div>
                 </div>
             </div>
+            <Footer></Footer>
         </div>
     );
 };

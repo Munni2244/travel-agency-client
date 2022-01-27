@@ -8,7 +8,7 @@ const Blogs = () => {
   const [page, setPage] = useState(0);
     const [pageCount, setPageCount] = useState(0);
 
-    const size = 10;
+    const size = 11;
 
     useEffect(() => {
                 fetch(`http://localhost:5000/blog?page=${page}&&size=${size}`)
