@@ -1,0 +1,14 @@
+.field{
+    width: 40%;
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid #5F9EA0;
+    border-radius: 20px;
+}
+.update-banner{
+    background-image: url('../../../images/blog-post-img-09-1-300x196.jpg');
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+}

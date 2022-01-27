@@ -1,0 +1,19 @@
+.login-box{
+width: 50%;
+height: 200px;
+}
+
+.login-box button{
+    margin-top: 60px;
+    width: 80%;
+    padding: 10px;
+    border-radius: 20px;
+    background-image: linear-gradient(rgb(144, 247, 241), white);
+}
+.login{
+    background-image: url('../../images/login2.jpg');
+    background-position:bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 600px;
+}

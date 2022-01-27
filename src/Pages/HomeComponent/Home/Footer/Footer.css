@@ -1,0 +1,8 @@
+.footter ul a {
+    text-decoration: none;
+    color: rgb(252, 249, 249);
+}
+.footter{
+    background-color: rgb(77, 87, 87);
+    /* color: rgb(191, 241, 248); */
+}

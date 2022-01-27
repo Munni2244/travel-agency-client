@@ -1,0 +1,21 @@
+.list{
+    border-top-right-radius: 40px;
+    height: auto;
+    width: 200px;
+}
+.list a{
+    text-decoration: none;
+    color: black;
+    display: block;
+    margin-top: 10px;
+    font-weight: 700;
+    font-size: large;
+    margin-bottom: 20px;
+}
+.dashboard{
+    background-image: linear-gradient( #b2faee,  #e1fcf7);
+    border-top-right-radius: 40px;
+    padding-bottom: 20px;
+
+
+}

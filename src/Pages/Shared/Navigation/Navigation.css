@@ -1,0 +1,12 @@
+.navigation-bar li{
+    margin-right: 10px;
+  
+  }
+  
+  .navigation-banner a{
+   margin-left: 15px;
+  color: black;
+  }
+  .navigation-banner a:hover{
+  color: #8ef6e4;
+  }
