@@ -109,8 +109,8 @@ const ManagePost = () => {
                                         <div>
 
                                             <div className='d-flex'>
-
-                                              <button onClick={() => ApprovePost(allPost?._id)} type="submit" style={{ width: '60%', height: '50px', backgroundColor: '#b2faee' }} className=" rounded-pill mb-3  text-dark fw-bold "> {allPost?.status== "Approve"? "Approved" : "Approved Post"}  </button>
+                                            {allPost?.status== "Approve"? <h5 className='mt-1 text-info fw-bold'>Approved</h5> :  <button onClick={() => ApprovePost(allPost?._id)} type="submit" style={{ width: '60%', height: '50px', backgroundColor: '#b2faee' }} className=" rounded-pill mb-3  text-dark fw-bold ">  </button>} 
+                                             
 
                                                 <button onClick={() => RemoveBlog(allPost?._id)} type="submit" style={{ width: '60%', height: '50px', backgroundColor: '' }} className=" rounded-pill mb-3 ms-3 text-light fw-bold bg-danger">Delete Post</button>
                                             </div>

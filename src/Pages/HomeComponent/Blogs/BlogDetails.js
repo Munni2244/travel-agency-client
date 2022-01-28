@@ -63,7 +63,16 @@ const BlogDetails = () => {
                             <p className='text-secondary fw-bold'>{details.category}</p>
                         </div>
 
-
+                        <div style={{fontStyle:'italic'}} className='mt-5 ms-1 text-secondary '>
+                            <h2 className=' fw-bold'>All Categories</h2>
+                            <p>AdVanture</p>
+                            <p>Trips</p>
+                            <p>Holiday</p>
+                            <p>Camping</p>
+                            <p>Cities</p>
+                            <p>Vacation</p>
+                            
+                        </div>
                     </div>
 
 
@@ -73,7 +82,7 @@ const BlogDetails = () => {
                     <div className='col-12 col-lg-4 col-md-4 '>
                         <h5 style={{ fontStyle: 'italic' }} className='fw-bold '>Top Blogs</h5>
                         <div className='row'>
-                            {allBlogs?.map(blog =>
+                            {allBlogs?.slice(0,9).map(blog =>
                                 <div key={blog._id} className='col-12 mt-4'>
                                     <Link to={`/details/${blog?._id}`}>
                                         <div className='d-flex'>
@@ -99,16 +108,7 @@ const BlogDetails = () => {
 
                         </div>
 
-                        <div style={{fontStyle:'italic'}} className='mt-5 ms-3 text-secondary '>
-                            <h2 className=' fw-bold'>All Categories</h2>
-                            <p>AdVanture</p>
-                            <p>Trips</p>
-                            <p>Holiday</p>
-                            <p>Camping</p>
-                            <p>Cities</p>
-                            <p>Vacation</p>
-                            
-                        </div>
+                        <Link to="/compare" className='text-info fw-bold '>See More....</Link>
                     </div>
 
 

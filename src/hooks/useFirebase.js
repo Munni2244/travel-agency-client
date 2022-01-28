@@ -24,24 +24,17 @@ const useFirebase = () => {
       }).catch((error) => {
       }).finally(() => setIsLoading(false));
   }
-  
+
 
   /// create register app
   const RegisterUser = (email, password, name, navigate) => {
     setIsLoading(true)
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        sendEmailVerification(auth.currentUser)
-          .then(() => {
-         
-            window.alert("Varification sent")
-
-          
-          }).catch((error)=>{
-  window.alert("Error", error.message)
-          })
+      
         const newUser = { email, displayName: name };
         setUser(newUser);
+        verificationEmail();
         saveUser(email, name, 'POST')
         updateProfile(auth.currentUser, {
           displayName: name
@@ -50,14 +43,7 @@ const useFirebase = () => {
           // ...
         })
 
-
-          .catch((error) => {
-            // An error occurred
-            // ...
-          });
-          
         navigate('/')
-
 
       })
       .catch((error) => {
@@ -65,6 +51,19 @@ const useFirebase = () => {
         // ..
       })
       .finally(() => setIsLoading(false));
+  }
+
+  //verified email
+  const verificationEmail=()=>{
+    sendEmailVerification(auth.currentUser)
+    .then(() => {
+
+      window.alert("Email Varification Succesfull")
+
+
+    }).catch((error) => {
+      window.alert("Error", error.message)
+    })
   }
 
   /// login user

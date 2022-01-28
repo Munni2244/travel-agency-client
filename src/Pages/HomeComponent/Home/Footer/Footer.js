@@ -47,7 +47,7 @@ const Footer = () => {
     </div>
   </div>
   </section>
-  <footer style={{backgroundColor:'rgb(191, 241, 248)'}} className="col-12 text-center text-dark py-3">
+  <footer style={{backgroundColor:'rgb(214, 218, 218)'}} className="col-12 text-center text-dark py-3">
     <small >&copy;Copyright 2021 Travel Agency  proggress</small>
   </footer>
 

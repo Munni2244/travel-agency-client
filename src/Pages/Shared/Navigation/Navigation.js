@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import './Navigation.css';
+import icon from '../../../images/h1-clients-img-01.png'
 
 const Navigation = () => {
     const {user, logOut}= useAuth();
@@ -53,22 +54,25 @@ const Navigation = () => {
                     </button>
                     <div className="collapse navbar-collapse " id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto ms-1 mb-2 mb-lg-0 navigation-banner ">
-                            <li className="nav-item">
-                                <h3 style={{ color: '#8ef6e4', fontWeight: 'bold' }} >Travel<span style={{ color: 'black' }}>Agency</span></h3>
+                        
+                            <img src={icon} alt=""  width="130px" height="50px" className=''/> 
+                
+                            <li className="nav-item mt-2">
+                                <h3 style={{ color: '#8ef6e4', fontWeight: 'bold' }}> Agency</h3>
                             </li>
-                            <li className="nav-item">
+                            <li className="nav-item mt-2 ms-3">
                                 <Link to="/" className="nav-link active fw-bold ">Home</Link>
                             </li>
-                            <li className="nav-item">
+                           {user.email && <li className="nav-item mt-2">
                                 <Link to="/addBlog" className="nav-link active fw-bold ">Add Blog</Link>
-                            </li>
-                            <li className="nav-item">
+                            </li>}
+                            <li className="nav-item mt-2">
                                 <Link to="/compare" className="nav-link active fw-bold ">Compare Blog</Link>
                             </li>
                      
                         </ul>
                         <div className="">
-                                <ul className="navbar-nav  mb-2 mb-lg-0">
+                                <ul className="navbar-nav  mb-2 mb-lg-0 mt-2">
 
                                     {
                                         user?.email ? <div className='d-flex navigation-banner'>
